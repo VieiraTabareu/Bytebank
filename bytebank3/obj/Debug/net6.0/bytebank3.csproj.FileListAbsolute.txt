@@ -1,0 +1,15 @@
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\obj\Debug\net6.0\bytebank3.csproj.AssemblyReference.cache
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\obj\Debug\net6.0\bytebank3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\obj\Debug\net6.0\bytebank3.AssemblyInfoInputs.cache
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\obj\Debug\net6.0\bytebank3.AssemblyInfo.cs
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\obj\Debug\net6.0\bytebank3.csproj.CoreCompileInputs.cache
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\bin\Debug\net6.0\bytebank3.exe
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\bin\Debug\net6.0\bytebank3.deps.json
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\bin\Debug\net6.0\bytebank3.runtimeconfig.json
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\bin\Debug\net6.0\bytebank3.dll
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\bin\Debug\net6.0\bytebank3.pdb
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\obj\Debug\net6.0\bytebank3.dll
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\obj\Debug\net6.0\refint\bytebank3.dll
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\obj\Debug\net6.0\bytebank3.pdb
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\obj\Debug\net6.0\bytebank3.genruntimeconfig.cache
+C:\Users\Vieira\Documents\SharpCoders\Projetos\Repeticao\bytebank3\bytebank3\obj\Debug\net6.0\ref\bytebank3.dll
