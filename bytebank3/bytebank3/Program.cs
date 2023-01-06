@@ -1,8 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using System.Net.Mail;
-using System.Reflection;
-using System.Reflection.Metadata.Ecma335;
 
 namespace ByteBank
 {
@@ -12,12 +8,13 @@ namespace ByteBank
         {
             Console.WriteLine("- MENU PRINCIPAL -");
             Console.WriteLine();
-            Console.WriteLine("1. Cadastrar usuário.");
-            Console.WriteLine("2. Listar contas cadastradas.");
-            Console.WriteLine("3. Gerenciar uma conta");
-            Console.WriteLine("4. Sair");
+            Console.WriteLine("1. Cadastrar usuário."); //feito
+            Console.WriteLine("2. Listar contas cadastradas."); //feito
+            Console.WriteLine("3. Gerenciar uma conta"); //feito
+            Console.WriteLine("4. Quantia armazenada no banco."); //feito
+            Console.WriteLine("5. Sair"); //feito
             Console.WriteLine();
-            Console.Write("Digite a opção desejada: ");
+            Console.Write("Digite uma opção: ");
         }
 
         public static void ManipularConta(int indexParaLogar, List<string> cpfs, List<string> titulares, List<string> senhas, List<double> saldos, List<int> contas)
@@ -26,12 +23,13 @@ namespace ByteBank
 
             do
             {
+                Console.Clear();
                 Console.WriteLine("- ESPAÇO DO CLIENTE -");
                 Console.WriteLine();
                 Console.WriteLine("1. Detalhes da conta");
                 Console.WriteLine("2. Realizar transações");
                 Console.WriteLine("3. Excluir conta");
-                Console.WriteLine("4. Sair.");
+                Console.WriteLine("4. Voltar");
                 Console.WriteLine();
                 Console.Write("Digite a opção desejada: ");
 
@@ -40,7 +38,12 @@ namespace ByteBank
                 switch (opcaoMenuManipular)
                 {
                     case 1:
+                        Console.Clear();
                         DetalhesConta(indexParaLogar, contas, cpfs, titulares, saldos);
+                        Console.WriteLine();
+                        Console.WriteLine("-> Pressione qualquer tecla para continuar");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 2:
                         MenuTransacoes();
@@ -49,17 +52,31 @@ namespace ByteBank
                         {
                             case 1:
                                 Sacar(indexParaLogar, saldos);
+                                Console.WriteLine();
+                                Console.WriteLine("-> Pressione qualquer tecla para continuar");
+                                Console.ReadKey();
+                                Console.Clear();
                                 break;
+
                             case 2:
                                 Depositar(indexParaLogar, saldos);
+                                Console.WriteLine();
+                                Console.WriteLine("-> Pressione qualquer tecla para continuar");
+                                Console.ReadKey();
+                                Console.Clear();
                                 break;
                             case 3:
-                                Transferir(indexParaLogar, cpfs, contas, titulares, saldos);
+                                Transferencia(indexParaLogar, cpfs, contas, titulares, saldos);
+                                Console.WriteLine();
                                 break;
                             case 4:
                                 return;
                             default:
                                 Console.WriteLine("Opção inválida.");
+                                Console.WriteLine();
+                                Console.WriteLine("-> Pressione qualquer tecla para voltar.");
+                                Console.ReadKey();
+                                Console.Clear();
                                 break;
                         }
                         break;
@@ -67,7 +84,7 @@ namespace ByteBank
                         ExcluirConta(indexParaLogar, cpfs, titulares, senhas, saldos, contas);
                         return;
                     case 4:
-                        break;
+                        return;
                     default:
                         Console.WriteLine("Opção inválida.");
                         break;
@@ -79,6 +96,7 @@ namespace ByteBank
 
         private static void MenuTransacoes()
         {
+            Console.Clear();
             Console.WriteLine("- TRANSAÇÕES -");
             Console.WriteLine();
             Console.WriteLine("1. Sacar.");
@@ -91,6 +109,8 @@ namespace ByteBank
 
         public static void CadastrarUsuario(List<string> titulares, List<string> cpfs, List<string> senhas, List<int> contas, List<double> saldos)
         {
+            Console.WriteLine(" - CADASTRO DE USUÁRIO -");
+            Console.WriteLine();
             Console.Write("Digite o nome completo: ");
             titulares.Add(Console.ReadLine());
             Console.Write("Digite o CPF: ");
@@ -122,8 +142,11 @@ namespace ByteBank
             int conta = numeroAleatorio.Next(2500, 8750);
             contas.Add(conta);
 
+            Console.WriteLine();
+            Console.WriteLine();
             Console.WriteLine("Conta nº {0} cadastrada com sucesso.", conta);
-
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         public static string MascararSenha()
@@ -154,6 +177,8 @@ namespace ByteBank
 
         public static void ListarContas(List<int> contas, List<string> titulares, List<string> cpfs)
         {
+            Console.WriteLine("- CONTAS BYTEBANK -");
+            Console.WriteLine();
             if (cpfs.Count > 0)
             {
                 for (int i = 0; i < cpfs.Count; i++)
@@ -170,7 +195,7 @@ namespace ByteBank
         public static void Login(List<string> cpfs, List<string> titulares, List<string> senhas, List<double> saldos, List<int> contas)
         {
             Console.WriteLine("LOGIN DE USUÁRIO");
-            Console.WriteLine("---------------");
+            Console.WriteLine();
 
             int indexParaLogar;
             string entrada = "n";
@@ -213,7 +238,8 @@ namespace ByteBank
         public static void ExcluirConta(int indexParaLogar, List<string> cpfs, List<string> titulares, List<string> senhas, List<double> saldos, List<int> contas)
         {
             string entrada = "n";
-
+            Console.WriteLine("- EXCLUSÃO DE USUÁRIO -");
+            Console.WriteLine();
             do
             {
                 DetalhesConta(indexParaLogar, contas, cpfs, titulares, saldos);
@@ -230,6 +256,9 @@ namespace ByteBank
                     contas.RemoveAt(indexParaLogar);
 
                     Console.WriteLine("Conta deletada com sucesso.");
+                    Console.WriteLine();
+                    Console.WriteLine("-> Pressione qualquer tecla para continuar.");
+                    Console.ReadKey();
                 }
                 else if (entrada == "n")
                 {
@@ -248,31 +277,50 @@ namespace ByteBank
 
         public static void DetalhesConta(int indexParaLogar, List<int> contas, List<string> cpfs, List<string> titulares, List<double> saldos)
         {
+            Console.WriteLine("- DETALHES DA CONTA -");
+            Console.WriteLine();
             Console.WriteLine($"Conta nº {contas[indexParaLogar]} | CPF:  {cpfs[indexParaLogar]} | Titular: {titulares[indexParaLogar]} | Saldo: R${saldos[indexParaLogar]:F2}");
         }
 
+        public static void TotalArmazenado(List<double> saldos)
+        {
+            Console.WriteLine("- PATRIMONIO BYTEBANK -");
+            Console.WriteLine();
+            Console.WriteLine($"Total armazenado no banco: R${saldos.Sum()}");
+        }
+
+
         public static void Depositar(int indexParaLogar, List<double> saldos)
         {
+            Console.Clear();
+            Console.WriteLine("- MENU DE DEPOSITO -");
+            Console.WriteLine();
             double valorDeposito;
 
             do
             {
-                Console.WriteLine();
                 Console.Write("Valor a ser depositado: R$ ");
                 double.TryParse(Console.ReadLine(), out valorDeposito);
 
 
                 if (valorDeposito <= 0)
                 {
+                    Console.WriteLine();
                     Console.WriteLine("Valor inválido.");
+                    Console.WriteLine();
+                    return;
                 }
                 else
                 {
+                    Console.WriteLine();
                     Console.WriteLine("Depósito realizado com sucesso.");
+                    Console.WriteLine();
 
                     saldos[indexParaLogar] += valorDeposito;
 
                     Console.WriteLine($"Saldo atual: R${saldos[indexParaLogar]:f2}");
+                    Console.WriteLine();
+                    return;
                 }
 
             } while (valorDeposito <= 0);
@@ -280,6 +328,9 @@ namespace ByteBank
 
         public static void Sacar(int indexParaLogar, List<double> saldos)
         {
+            Console.Clear();
+            Console.WriteLine("- MENU DE SAQUE -");
+            Console.WriteLine();
             double valorSaque;
 
             do
@@ -291,21 +342,28 @@ namespace ByteBank
 
                 if (valorSaque <= 0 || valorSaque > saldos[indexParaLogar])
                 {
+                    Console.WriteLine();
                     Console.WriteLine("Valor inválido.");
+                    Console.WriteLine();
+                    return;
                 }
                 else
                 {
+                    Console.WriteLine();
                     Console.WriteLine("Saque realizado com sucesso.");
+                    Console.WriteLine();
 
                     saldos[indexParaLogar] -= valorSaque;
 
                     Console.WriteLine($"Saldo atual: R${saldos[indexParaLogar]:f2}");
+                    Console.WriteLine();
+                    return;
                 }
 
             } while (valorSaque <= 0 || valorSaque > saldos[indexParaLogar]);
         }
 
-        public static void Transferir(int indexParaLogar, List<string> cpfs, List<int> contas, List<string> titulares, List<double> saldos)
+        public static void Transferencia(int indexParaLogar, List<string> cpfs, List<int> contas, List<string> titulares, List<double> saldos)
         {
             int indexContaDestino;
             string entrada = "n";
@@ -313,24 +371,26 @@ namespace ByteBank
             do
             {
                 Console.WriteLine();
-                Console.Write("Conta destino: ");
+                Console.Write("Forneça o CPF da conta na qual deseja realizar a transferência: ");
                 string cpfContaDestino = Console.ReadLine();
                 indexContaDestino = cpfs.FindIndex(cpf => cpf == cpfContaDestino);
 
                 if (indexContaDestino == -1)
                 {
-                    Console.WriteLine("Conta não encontrada.");
+                    Console.WriteLine("Conta de destino não encontrada.");
                     Console.WriteLine();
+                    return;
                 }
                 else if (indexContaDestino == indexParaLogar)
                 {
-                    Console.WriteLine("Não é possível transferir para a mesma conta. Insira outra conta.");
+                    Console.WriteLine("Não é possível transferir para a mesma conta. Tente novamente.");
                 }
                 else
                 {
-                    Console.WriteLine($"Conta Destino válida:" +
+                    Console.WriteLine();
+                    Console.WriteLine($"Confirme a conta:" +
                         $"Conta nº {contas[indexContaDestino]} | CPF:  {cpfs[indexContaDestino]} | Titular: {titulares[indexContaDestino]}");
-                    Console.ResetColor();
+                    Console.WriteLine();
                 }
 
             } while (indexContaDestino == -1 || indexContaDestino == indexParaLogar);
@@ -339,12 +399,13 @@ namespace ByteBank
 
             do
             {
-                Console.Write("Valor da transferência: R$ ");
+                Console.Write("Valor da transferência: R$");
                 double.TryParse(Console.ReadLine(), out valorTransferencia);
 
                 if (valorTransferencia <= 0 || valorTransferencia > saldos[indexParaLogar])
                 {
-                    Console.WriteLine("Valor inválido.");
+                    Console.WriteLine("Valor inválido. Tente novamente");
+                    return;
                 }
                 else
                 {
@@ -352,7 +413,11 @@ namespace ByteBank
                     saldos[indexContaDestino] += valorTransferencia;
 
                     Console.WriteLine("Transferência realizada.");
-                    Console.WriteLine($"Saldo atual: R${saldos[indexParaLogar]:f2}");
+                    Console.WriteLine();
+                    Console.WriteLine($"Saldo atual: R$ {saldos[indexParaLogar]:f2}");
+                    Console.WriteLine();
+                    Console.WriteLine("-> Pressione qualquer tecla para continuar.");
+                    Console.ReadKey();
                 }
 
             } while (valorTransferencia <= 0 || valorTransferencia > saldos[indexParaLogar]);
@@ -375,6 +440,7 @@ namespace ByteBank
 
             do
             {
+                Console.Clear();
                 MenuPrincipal();
 
                 int.TryParse(Console.ReadLine(), out opcao);
@@ -386,25 +452,42 @@ namespace ByteBank
                 switch (opcao)
                 {
                     case 1:
+                        Console.Clear();
                         CadastrarUsuario(titulares, cpfs, senhas, contas, saldos);
+                        Console.WriteLine();
+                        Console.WriteLine("> Pressione qualquer tecla para continuar");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 2:
+                        Console.Clear();
                         ListarContas(contas, titulares, cpfs);
+                        Console.WriteLine();
+                        Console.WriteLine("> Pressione qualquer tecla para continuar");
+                        Console.ReadKey();
+                        Console.Clear();
                         break;
                     case 3:
+                        Console.Clear();
                         Login(cpfs, titulares, senhas, saldos, contas);
+                        Console.WriteLine();
+                        break;
+                    case 5:
+                        Console.WriteLine("Encerrando...");
                         break;
                     case 4:
-                        Console.WriteLine("Encerrando...");
+                        TotalArmazenado(saldos);
+                        Console.WriteLine();
+                        Console.WriteLine("-> Pressione qualquer tecla para continuar.");
+                        Console.ReadKey();
                         break;
                     default:
                         Console.WriteLine("Opção invalida.");
+                        Console.WriteLine();
                         break;
                 }
-
             }
-            while (opcao != 4);
+            while (opcao != 5);
         }
-
     }
 }

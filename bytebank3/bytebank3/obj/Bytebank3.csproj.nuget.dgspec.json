@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Vieira\\Documents\\SharpCoders\\Projetos\\Repeticao\\Bytebank3\\Bytebank3\\Bytebank3.csproj": {}
+    "C:\\Users\\Vieira\\Documents\\SharpCoders\\Projetos\\Repeticao\\bytebank3\\Bytebank3\\Bytebank3.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Vieira\\Documents\\SharpCoders\\Projetos\\Repeticao\\Bytebank3\\Bytebank3\\Bytebank3.csproj": {
+    "C:\\Users\\Vieira\\Documents\\SharpCoders\\Projetos\\Repeticao\\bytebank3\\Bytebank3\\Bytebank3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Vieira\\Documents\\SharpCoders\\Projetos\\Repeticao\\Bytebank3\\Bytebank3\\Bytebank3.csproj",
+        "projectUniqueName": "C:\\Users\\Vieira\\Documents\\SharpCoders\\Projetos\\Repeticao\\bytebank3\\Bytebank3\\Bytebank3.csproj",
         "projectName": "Bytebank3",
-        "projectPath": "C:\\Users\\Vieira\\Documents\\SharpCoders\\Projetos\\Repeticao\\Bytebank3\\Bytebank3\\Bytebank3.csproj",
+        "projectPath": "C:\\Users\\Vieira\\Documents\\SharpCoders\\Projetos\\Repeticao\\bytebank3\\Bytebank3\\Bytebank3.csproj",
         "packagesPath": "C:\\Users\\Vieira\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Vieira\\Documents\\SharpCoders\\Projetos\\Repeticao\\Bytebank3\\Bytebank3\\obj\\",
+        "outputPath": "C:\\Users\\Vieira\\Documents\\SharpCoders\\Projetos\\Repeticao\\bytebank3\\Bytebank3\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
